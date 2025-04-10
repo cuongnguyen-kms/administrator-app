@@ -1,0 +1,9 @@
+<div class="d-flex flex-column vh-100">
+  <app-header></app-header>
+  <div class="d-flex flex-grow-1 overflow-hidden">
+    <app-sidebar (collapseChange)="onCollapseChange($event)"></app-sidebar>
+    <main [class.main-collapsed]="isSidebarCollapsed" class="flex-grow-1 overflow-auto p-4 bg-body transition-width">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

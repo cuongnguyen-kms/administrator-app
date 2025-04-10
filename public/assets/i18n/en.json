@@ -1,0 +1,14 @@
+{
+  "HOME": {
+    "TITLE": "Welcome",
+    "DESCRIPTION": "This is a standalone Angular app with i18n support."
+  },
+  "HEADER": {
+    "TITLE": "Welcome",
+    "DESCRIPTION": "This is a standalone Angular app with i18n support."
+  },
+  "SIDEBAR": {
+    "HOME": "Home",
+    "DASHBOARD": "Dashboard"
+  }
+}

@@ -1,0 +1,28 @@
+<div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let report of reports">
+      <app-static-report-card [header]="report.header"
+                               [title]="report.title"
+                               [value]="report.value"
+                               [description]="report.description"></app-static-report-card>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <app-line-chart [title]="'Revenue Over Time'"
+                      [categories]="categories"
+                      [series]="series"></app-line-chart>
+    </div>
+    <div class="col-md-6">
+      <app-pie-chart [title]="'Live Sales Breakdown'"
+                    [series]="pieSeries"></app-pie-chart>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <app-bar-chart [title]="'Top 5 Products'"
+                     [categories]="barCategories"
+                     [series]="barSeries"></app-bar-chart>
+    </div>
+  </div>
+</div>

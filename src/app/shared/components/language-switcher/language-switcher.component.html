@@ -1,0 +1,9 @@
+<div>
+  <select id="langSelect"
+          class="form-select w-auto d-inline-block"
+          [value]="selectedLang"
+          (change)="switchLanguage($any($event.target).value)">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+  </select>
+</div>

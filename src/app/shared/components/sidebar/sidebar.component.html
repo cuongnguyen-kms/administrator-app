@@ -1,0 +1,24 @@
+<div [class.collapsed]="collapsed" class="sidebar d-flex flex-column bg-light border-end">
+  <div class="flex-grow-1 p-3">
+    <ul class="nav flex-column">
+      <li class="nav-item" *ngFor="let item of navItems">
+        <a class="nav-link d-flex align-items-center"
+           [ngClass]="{
+              'justify-content-center': collapsed,
+              'justify-content-start': !collapsed
+            }"
+           [routerLink]="item.route"
+           [attr.title]="collapsed ? item.label : null">
+          <i [class]="item.icon + ' me-2'"></i>
+          <span *ngIf="!collapsed">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="p-2 border-top text-center">
+    <button class="btn btn-outline-secondary btn-sm" (click)="toggleSidebar()" [attr.title]="collapsed ? 'Expand' : 'Collapse'">
+      <i class="fas" [class.fa-angle-left]="!collapsed" [class.fa-angle-right]="collapsed"></i>
+    </button>
+  </div>
+</div>

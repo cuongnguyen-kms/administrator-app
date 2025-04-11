@@ -1,6 +1,6 @@
 <div>
   <div class="row">
-    <div class="col-md-4" *ngFor="let report of reports">
+    <div class="col-md-4" *ngFor="let report of reportData$ | async">
       <app-static-report-card [header]="report.header"
                                [title]="report.title"
                                [value]="report.value"

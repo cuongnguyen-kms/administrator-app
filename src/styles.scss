@@ -4,3 +4,7 @@
 @use '@fortawesome/fontawesome-free/scss/solid'; // for solid icons
 @use '@fortawesome/fontawesome-free/scss/brands';
 @use '@fortawesome/fontawesome-free/scss/regular';
+
+:root {
+  --app-header-bg-color: #102E50;
+}

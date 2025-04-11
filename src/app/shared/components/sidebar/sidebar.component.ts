@@ -13,8 +13,8 @@ export class SidebarComponent implements OnInit {
   collapsed = false;
 
   navItems = [
-    { route: '/', label: 'Home', icon: 'fas fa-home' },
-    { route: '/dashboard', label: 'Dashboard', icon: 'fas fa-chart-line' }
+    { route: '/', label: 'SIDEBAR.HOME', icon: 'fas fa-home' },
+    { route: '/dashboard', label: 'SIDEBAR.DASHBOARD', icon: 'fas fa-chart-line' }
     // Add more items here
   ];
 

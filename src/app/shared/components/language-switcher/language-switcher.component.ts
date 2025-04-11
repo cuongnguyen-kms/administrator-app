@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../state/app.models';
+
+import { selectLanguage } from '../../../state/app.selectors';
+import { setLanguage } from '../../../state/app.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-language-switcher',
@@ -10,24 +15,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './language-switcher.component.scss',
 })
 export class LanguageSwitcherComponent {
-  selectedLang: string;
+  selectedLang$!: Observable<string>;
 
-  constructor(private translate: TranslateService) {
-    let savedLang = 'en';
+  constructor(
+    private store: Store<AppState>,
+  ) {
+    this.selectedLang$ = this.store.select(selectLanguage);
     try {
-      if (typeof window !== 'undefined') {
-        savedLang = localStorage.getItem('appLang') || 'en';
+      const stored = localStorage.getItem('appLang');
+      if (stored) {
+        this.store.dispatch(setLanguage({ language: stored }));
       }
-    } catch (e) {
-      savedLang = 'en';
-    }
-    this.selectedLang = savedLang;
-    this.translate.use(savedLang);
+    } catch {}
   }
 
   switchLanguage(lang: string) {
-    this.selectedLang = lang;
-    this.translate.use(lang);
-    localStorage.setItem('appLang', lang);
+    this.store.dispatch(setLanguage({ language: lang }));
   }
 }
